@@ -1,8 +1,14 @@
-import imageUrlBuilder from "@sanity/image-url";
-import { projectId, dataset } from "./sanity.api";
-import { SanityImageAsset } from "sanity-codegen";
+import createImageUrlBuilder from "@sanity/image-url";
+// import { definePreview } from 'next-sanity/preview'
+import { sanityConfig } from "./sanity.client";
+import {
+  SanityImageAsset,
+  SanityImageCrop,
+  SanityImageHotspot,
+} from "sanity-codegen";
+// import { SanityAsset } from "@sanity/image-url/lib/types/types";
 
-const imageBuilder = imageUrlBuilder({ projectId: projectId!, dataset: dataset! });
+const imageBuilder = createImageUrlBuilder(sanityConfig);
 
 // type SanityImage = {
 //   _type: "image";

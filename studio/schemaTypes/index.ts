@@ -1,5 +1,5 @@
 import home from './singletons/home'
-// import landing from './singletons/landing'
+import landing from './singletons/landing'
 import pageModulaire from './documents/pageModulaire'
 import lieu from './documents/lieu'
 import studio from './documents/studio'
@@ -31,6 +31,7 @@ import summaryDetail from './objects/summaryDetail'
 
 import heroUI from './objects/modules/heroUI'
 import textUI from './objects/modules/textUI'
+import textsUI from './objects/modules/textsUI'
 import contactsUI from './objects/modules/contactsUI'
 import listCardImageTextUI from './objects/modules/listCardImageTextUI'
 import imageUI from './objects/modules/imageUI'
@@ -46,10 +47,12 @@ import heroSplitUI from './objects/modules/heroSplitUI'
 import textImageUI from './objects/modules/textImageUI'
 import listPageUI from './objects/modules/listPageUI'
 import sliderCardImageTextUI from './objects/modules/sliderCardImageTextUI'
+import imagesUI from './objects/modules/imagesUI'
+import logosUI from './objects/modules/logosUI'
 
 export const schemaTypes = [
   home,
-  // landing,
+  landing,
   infos,
   settings,
   pageModulaire,
@@ -80,8 +83,11 @@ export const schemaTypes = [
   summaryDetail,
 
   textUI,
+  textsUI,
   imageUI,
+  imagesUI,
   heroUI,
+  logosUI,
   contactsUI,
   listCardImageTextUI,
   listLieuUI,

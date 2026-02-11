@@ -4,7 +4,7 @@ import website from "./config/website";
 import { getHome, HOME_QUERY } from "./sanity-api/sanity-queries";
 import { Home } from "./types/schema";
 import { notFound } from "next/navigation";
-import { getPreviewClient } from "./sanity-api/sanity.client";
+import { getClient } from "./sanity-api/sanity.client";
 import ContentModulaire from "./components/ContentModulaire";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -18,20 +18,19 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-// type PageProps = {
-//   params: {
-//     slug: string;
-//   };
-// };
+export const revalidate = 3600;
+// revalidate every hour
 
 const HomePage = async function Page() {
   const { isEnabled } = await draftMode();
 
   let data: Home;
   if (isEnabled) {
-    data = await getPreviewClient(process.env.SANITY_API_READ_TOKEN!).fetch(
+    data = await getClient({ token: process.env.SANITY_API_READ_TOKEN }).fetch(
       HOME_QUERY,
-      {},
+      {
+        slug: "/",
+      },
     );
   } else {
     data = (await getHome()) as Home;
@@ -40,7 +39,7 @@ const HomePage = async function Page() {
   if (!data) return notFound();
 
   return (
-    <div className='template template--home' data-template='home'>
+    <div className="template template--home" data-template="home">
       {data.modules && <ContentModulaire modules={data.modules} />}
     </div>
   );

@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { ImageUI } from "@/app/types/schema";
 import Figure from "../ui/Figure";
 // import PreJson from "../ui/PreJson";
-// import portableTextComponents from "@/app/utils/portableTextComponents";
+// import portableTextComponents from "@/app/sanity-api/portableTextComponents";
 // import { PortableText } from "@portabletext/react";
 
 type Props = {
@@ -18,9 +18,10 @@ const ModuleImageUI = ({ input }: Props) => {
       className={clsx(
         "module module--image",
         // input.size && `md:col-span-${input.size === 1 ? 4 : input.size}`
-      )}>
+      )}
+    >
       {input.image && <Figure asset={input.image?.image?.asset} width={1000} />}
-      <figcaption className='py-2'>{input.image?.caption}</figcaption>
+      <figcaption className="py-2">{input.image?.caption}</figcaption>
     </div>
   );
 };

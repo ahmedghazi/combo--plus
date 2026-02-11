@@ -1,7 +1,7 @@
-// @use "reset";
-// @use "variables";
-// @use "vendor/flexboxgrid/flexboxgrid";
-// @use 'vendor/slickslider/slick';
+// @import "reset";
+@use "variables";
+@use "vendor/flexboxgrid/flexboxgrid";
+// @import 'vendor/slickslider/slick';
 
 @use "mixins";
 @use "utils";

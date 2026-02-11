@@ -1,8 +1,8 @@
 import { BlockContent, Figure } from "@/app/types/schema";
 import React from "react";
 import FigureUI from "./Figure";
-import { _localizeField } from "@/app/sanity-api/utils";
 import { PortableText } from "next-sanity";
+import FigureComponent from "./Figure";
 import portableTextComponents from "@/app/sanity-api/portableTextComponents";
 
 type Props = {
@@ -14,10 +14,12 @@ type Props = {
 };
 
 const Card = ({ image, title, tag, excerpt, text }: Props) => {
+  // console.log(title);
+  // console.log(text);
   return (
     <article className='card'>
       <div className='inner'>
-        {image && <FigureUI asset={image.image} />}
+        {image && <FigureComponent asset={image.image} />}
         <div className='content'>
           <div className='header'>
             {title && <h3>{title}</h3>}
@@ -31,6 +33,7 @@ const Card = ({ image, title, tag, excerpt, text }: Props) => {
           )}
         </div>
       </div>
+      {/* <pre>{JSON.stringify(text, null, 2)}</pre> */}
     </article>
   );
 };

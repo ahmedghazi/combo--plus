@@ -4,12 +4,14 @@ import {
   getPageModulaire,
   PAGE_MODULAIRE_QUERY,
 } from "@/app/sanity-api/sanity-queries";
-import { getPreviewClient } from "@/app/sanity-api/sanity.client";
+import { getClient } from "@/app/sanity-api/sanity.client";
 import { PageModulaire } from "@/app/types/schema";
 
 import { Metadata, NextPage } from "next";
 import { draftMode } from "next/headers";
 import React from "react";
+
+export const revalidate = 3600; // revalidate every hour
 
 type Params = Promise<{ slug: string }>;
 
@@ -36,9 +38,9 @@ const Page: NextPage<PageProps> = async ({ params }) => {
   const { isEnabled } = await draftMode();
   let data: PageModulaire;
   if (isEnabled) {
-    data = await getPreviewClient(process.env.SANITY_API_READ_TOKEN!).fetch(
+    data = await getClient({ token: process.env.SANITY_API_READ_TOKEN }).fetch(
       PAGE_MODULAIRE_QUERY,
-      { slug },
+      { slug: slug },
     );
   } else {
     data = (await getPageModulaire(slug)) as PageModulaire;
@@ -47,8 +49,9 @@ const Page: NextPage<PageProps> = async ({ params }) => {
   if (!data) return <div>please edit page</div>;
   return (
     <div
-      className='template template--page-modulaire'
-      data-template='page-modulaire'>
+      className="template template--page-modulaire"
+      data-template="page-modulaire"
+    >
       {data.modules && <ContentModulaire modules={data.modules} />}
     </div>
   );

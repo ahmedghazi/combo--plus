@@ -1,8 +1,8 @@
 import { SplitImageTextUI } from "@/app/types/schema";
-import { _localizeField } from "@/app/sanity-api/utils";
 import { PortableText } from "next-sanity";
 import React from "react";
 import AOS from "../ui/AOS";
+import { _localizeField } from "@/app/sanity-api/utils";
 import portableTextComponents from "@/app/sanity-api/portableTextComponents";
 
 type Props = {

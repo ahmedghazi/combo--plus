@@ -1,8 +1,8 @@
 import { HeroUI } from "@/app/types/schema";
+import { urlFor } from "@/app/sanity-api/sanity-utils";
 import Image from "next/image";
 import React from "react";
 import AOS from "../ui/AOS";
-import { urlFor } from "@/app/sanity-api/sanity-utils";
 
 type Props = {
   input: HeroUI;

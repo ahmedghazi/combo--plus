@@ -15,9 +15,9 @@ type Props = {
 };
 
 const Footer = ({ settings }: Props) => {
-  // console.log(settings);
+  // const {}
   return (
-    <footer>
+    <footer className={settings.footerDark ? "is-dark" : ""}>
       <div className='grid md:grid-cols-3 gap-lg md:gap-md'>
         <div className='text'>
           {settings?.footerInfos && (
