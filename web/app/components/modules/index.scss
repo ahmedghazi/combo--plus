@@ -32,6 +32,9 @@
         img {
           height: 100% !important;
         }
+        img {
+          max-height: 50dvh;
+        }
         @media all and (max-width: variables.$sm) {
           &-0,
           &-2 {
@@ -42,13 +45,17 @@
     }
     &.module--logos-ui {
       background-color: transparent;
+
       .inner {
-        padding: var(--spacing-50);
+        padding: var(--spacing-md) var(--spacing-50);
         background-color: var(--backgroundColor, #000);
         color: var(--color, #fff);
-
+        figure {
+          position: relative;
+          // @include mixins.debugSquare(46px);
+        }
         img {
-          height: 180px !important;
+          height: 161px !important;
           width: auto !important;
           object-fit: contain !important;
         }
@@ -79,7 +86,11 @@
           background-repeat: no-repeat;
           background-size: cover;
           background-position: center center;
-          filter: grayscale(100%);
+          // filter: grayscale(100%);
+        }
+        .bg-blend {
+          // opacity: 0.5;
+          // mix-blend-mode: unset;
         }
         .bg-blend + div {
           position: relative;

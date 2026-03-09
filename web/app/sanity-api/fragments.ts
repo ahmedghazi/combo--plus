@@ -262,7 +262,15 @@ export const listCardImageTextUI = `
 			text{
 				${blockContent}
 			},
-		}
+      tagsFilter[]->{
+        title,
+        slug
+      }
+		},
+    navTags[]->{
+      title,
+      slug
+    }
 	}
 	`;
 

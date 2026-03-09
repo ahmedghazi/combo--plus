@@ -19,6 +19,13 @@ export default defineField({
       title: 'Tag',
     }),
     defineField({
+      name: 'tagsFilter',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'tag'}]}],
+      title: 'Tag Filter',
+      description: 'Pour créer la nav filter sur la grille de Card Image Text',
+    }),
+    defineField({
       name: 'text',
       type: 'localeBlockContent',
       title: 'text',
